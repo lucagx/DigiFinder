@@ -1,4 +1,4 @@
-import './styles/global.css'
+import React from 'react';
 import DigimonList from './components/DigimonList'
 import digimonLogo from './assets/digimon.svg';
 
