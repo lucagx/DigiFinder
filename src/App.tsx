@@ -1,4 +1,4 @@
-import './App.css'
+import './global.css'
 import DigimonList from './components/DigimonList'
 import digimonLogo from './assets/digimon.svg';
 
