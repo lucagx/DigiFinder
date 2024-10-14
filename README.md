@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# DigiFinder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta é uma aplicação para listar e buscar Digimons usando React, TypeScript e Vite. A aplicação se comunica com a [API Digimon](https://github.com/lucagx/Digimon-API) para listar e buscar Digimons.
 
-Currently, two official plugins are available:
+## Dependências
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/) | Biblioteca para construir interfaces de usuário.
+- [TypeScript](https://www.typescriptlang.org/) | Superset do JavaScript que adiciona tipagem estática.
+- [Vite](https://vitejs.dev/) | Ferramenta de build rápida para projetos web modernos.
+- [axios](https://axios-http.com/) | Cliente HTTP baseado em Promises para o navegador e Node.js.
 
-## Expanding the ESLint configuration
+## Estrutura do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `src/` | Contém os arquivos fonte da aplicação.
+  - `components/` | Componentes React reutilizáveis.
+  - `services/` | Serviços para comunicação com a API.
+  - `assets/` | Arquivos estáticos como imagens e ícones.
+  - `App.tsx` | Componente principal da aplicação.
+  - `index.tsx` | Ponto de entrada da aplicação.
 
-- Configure the top-level `parserOptions` property like this:
+## Conexão com a API
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+A aplicação se comunica com a [API Digimon](https://github.com/lucagx/Digimon-API) no backend para listar e buscar Digimons. A API está hospedada em https://digimon-api-phi.vercel.app/.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+A conexão é feita através do serviço `axios` configurado em `src/services/api.ts`. Aqui estão os endpoints utilizados:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+#### Listar todos os Digimons
+  - URL: `/api/digimons`
+  - Método: `GET`
+  - Resposta: Lista de todos os Digimons.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+#### Buscar Digimon pelo Nome
+  - URL: `/api/digimons/name/:name`
+  - Método: `GET`
+  - Parâmetros:
+      - `name` (string): Nome do Digimon.
+  - Resposta: Detalhes do Digimon correspondente.
+
+#### Buscar Digimon pelo Nível
+  - URL: `/api/digimons/level/:level`
+  - Método: `GET`
+  - Parâmetros:
+      - `level` (string): Nível do Digimon.
+  - Resposta: Lista de Digimons no nível especificado.
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
+
+### `npm install`
+
+Instala as dependências do projeto.
+
+### `npm run dev`
+
+Inicia o servidor de desenvolvimento.
