@@ -5,7 +5,7 @@ import digimonLogo from './assets/digimon.svg';
 const App: React.FC = () => {
   return (
       <div className='App'>
-        <img src={digimonLogo} alt="logo-digimon" className="logo"/>
+        <img src={digimonLogo} alt="logo-digimon" className="logo" />
         <h1>DigiFinder</h1>
         <DigimonList />        
       </div>
