@@ -12,7 +12,7 @@ export default defineConfig({
       "/api": {
         target: "https://digimon-api-phi.vercel.app",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
