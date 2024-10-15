@@ -2,13 +2,15 @@ import type React from 'react';
 import { useState } from 'react';
 import SearchByName from './SearchByName';
 import SelectLevel from './SelectLevel';
+import RandomDigimon from './RandomDigimon';
 
 interface SearchBarDigimonProps {
   onSearchByName: (name: string) => void;
   onSearchByLevel: (level: string) => void;
+  onRandomDigimon: () => void;
 }
 
-const SearchBarDigimon: React.FC<SearchBarDigimonProps> = ({ onSearchByName, onSearchByLevel }) => {
+const SearchBarDigimon: React.FC<SearchBarDigimonProps> = ({ onSearchByName, onSearchByLevel, onRandomDigimon }) => {
   const [name, setName] = useState('');
 
   const handleNameChange = (name: string) => {
@@ -23,6 +25,10 @@ const SearchBarDigimon: React.FC<SearchBarDigimonProps> = ({ onSearchByName, onS
     onSearchByName(name);
   };
 
+  const handleRandomDigimon = () => {
+    onRandomDigimon();
+  }
+
   return (
     <div className="search-digimon">
       <SearchByName onSearch={handleNameChange} />
@@ -30,6 +36,7 @@ const SearchBarDigimon: React.FC<SearchBarDigimonProps> = ({ onSearchByName, onS
         Pesquisar
       </button>
       <SelectLevel onSelect={handleLevelChange} />
+      <RandomDigimon onClick={handleRandomDigimon} />
     </div>
   );
 };

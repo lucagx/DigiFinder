@@ -31,3 +31,15 @@ export const getDigimonByLevel = async (level: string) => {
 		throw error;
 	}
 };
+
+export const getRandomDigimon = async () => {
+	try {
+		const response = await axios.get(API_URL);
+		const data = await response.data;
+
+		const randomIndex = Math.floor(Math.random() * data.length);
+		return data[randomIndex];
+	} catch (error) {
+		console.error("Erro ao buscar Digimon:", error);
+	}
+};

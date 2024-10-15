@@ -1,6 +1,6 @@
 import type React from "react";
 import { useEffect, useState } from "react";
-import { getAllDigimons, getDigimonByLevel, getDigimonByName } from "../services/api";
+import { getAllDigimons, getDigimonByLevel, getDigimonByName, getRandomDigimon } from "../services/api";
 import DigimonCard from "./DigimonCard";
 import SearchBarDigimon from "./SearchBarDigimon";
 
@@ -50,9 +50,18 @@ const DigimonList: React.FC = () => {
     } 
   };
 
+  const fetchRandomDigimon = async () => {
+    try {
+      const data = await getRandomDigimon() ;
+      setDigimons(Array.isArray(data) ? data : [data]);
+    } catch (error) {
+      console.error("Erro ao buscar Digimon:", error);
+    }
+  };
+
   return (
     <div>
-      <SearchBarDigimon onSearchByName={handleSearchByName} onSearchByLevel={handleSearchByLevel} />
+      <SearchBarDigimon onSearchByName={handleSearchByName} onSearchByLevel={handleSearchByLevel} onRandomDigimon={fetchRandomDigimon}/>
       <div className="digimon-list">
         {digimons.map((digimon) => (
           <DigimonCard
