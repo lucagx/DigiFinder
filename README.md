@@ -2,6 +2,10 @@
 
 Esta é uma aplicação para listar e buscar Digimons usando React, TypeScript e Vite. A aplicação se comunica com a [API Digimon](https://github.com/lucagx/Digimon-API) para listar e buscar Digimons.
 
+## Link do Figma
+
+Você pode visualizar o design do projeto no [Figma](https://www.figma.com/community/file/1428038068888149794/digifinder).
+
 ## Dependências
 
 - [React](https://reactjs.org/) | Biblioteca para construir interfaces de usuário.
@@ -43,14 +47,26 @@ A conexão é feita através do serviço `axios` configurado em `src/services/ap
       - `level` (string): Nível do Digimon.
   - Resposta: Lista de Digimons no nível especificado.
 
-## Scripts Disponíveis
+## Clonar e Rodar Localmente
 
-No diretório do projeto, você pode executar:
+Siga os passos abaixo para clonar e rodar o projeto localmente na porta `http://localhost:5173/`:
 
-### `npm install`
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/lucagx/DigiFinder.git
 
-Instala as dependências do projeto.
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd digifinder
 
-### `npm run dev`
+3. Instale as dependências:
+   ```sh
+   npm install
 
-Inicia o servidor de desenvolvimento.
+4. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev
+
+5. Abra o navegador e acesse:
+   ```sh
+   http://localhost:5173/
